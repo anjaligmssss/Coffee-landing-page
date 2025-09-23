@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #332421;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(-45deg, #332421, #5a3a2b, #332421);
+    background-size: 400% 400%;
+    animation: bgMove 12s ease infinite;
+}
+
+
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+/* Nav bar */
+#nav{
+    height:10%;
+    width: 100%;
+    padding:40px 40px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#logo img{
+    height: 200px;
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: logoenter 1.4s ease-out  forwards;
+}
+
+@keyframes logoenter{
+    to{
+        height: 300px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+#menu h2{
+    font-size:18px;
+    font-weight: 500;
+}
+
+#menu h2:hover {
+    background-color: rgb(228, 151, 8);
+    color: black;
+    border: 1px solid rgb(228, 151, 8);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px rgb(228, 151, 8);
+}
+
+#menu-bar{
+    display: none;
+}
+
+
+/* hero section */
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90%;
+    width: 100%;
+    padding: 0 40px;
+}
+
+#hero-img{
+    width: 50%;
+     /* margin:0 20px; */
+     padding: 0 80px;
+}
+
+#hero-img img{
+    height: 80%;
+    width: 80%;
+    position: relative;
+    animation: float 2s ease-in 0.2s infinite;
+}
+
+@keyframes float{
+    0% {  transform: translateY(0);  }
+    50% {  transform: translateY(-15px); }
+    100% {  transform: translateY(0); }
+}
+
+
+#hero-msg{
+    text-align: start;
+    width: 45%;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+#hero-msg h2{
+    font-family:monospace;
+    color: rgb(228, 151, 8);
+    font-size: 1.8rem;
+    font-weight: 500;
+  
+}
+
+#hero-msg h3{
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 10px 0 20px 0;
+}
+
+#hero-msg p{
+    font-weight: 300;
+    line-height:1.2rem;
+    word-spacing: 0.2rem;
+}
+
+#btns{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    /* text-align: start; */
+    margin-top: 20px;
+  
+}
+
+#btns button{
+      padding: 8px;
+    border-radius: 20px;
+    border:1px solid white;
+    background-color: transparent;
+    color: #fff;
+    letter-spacing: 1.5px;
+    font-size: small;
+}
+
+#btns button:hover{
+    background-color: rgb(228, 151, 8);
+    color: black;
+    border: 1px solid rgb(228, 151, 8);
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(228, 151, 8);
+    transform: scale(1.05);
+}
+
+.slideani{
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slide 1s ease-in 1.5s forwards;
+}
+
+#hero-msg h2{  animation-delay: 0.3s;}
+#hero-msg h3{  animation-delay: 0.6s;}
+#hero-msg p{  animation-delay: 0.9s;}
+#hero-msg button{  animation-delay: 1.2s;}
+
+@keyframes slide{
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* 📱 Responsive Styles for screens 750px and below */
+@media (max-width: 750px) {
+    
+    /* 🔹 NAVIGATION CHANGES */
+    #menu {
+        display: none;        /* Hide the desktop menu */
+    }
+
+    #menu-bar {
+        display: block;       /* Show the hamburger menu */
+        font-size: 26px;
+        cursor: pointer;
+        padding-right: 20px;
+    }
+
+    /* 🔹 HERO SECTION CHANGES */
+    #hero {
+        flex-direction: column;   /* Stack image & text vertically */
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        gap: 30px;                /* Add spacing between image & text */
+    }
+
+    #hero-msg {
+        width: 100%;              /* Full width for text */
+        margin-left: 0;           
+    }
+
+    #hero-img {
+        width: 90%;               /* Image takes up more width */
+        padding: 0;
+    }
+
+    #hero-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 🔹 BUTTON FIXES */
+    #btns {
+        width: 100%;              /* Ensure buttons don’t get squeezed */
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;          /* Wrap buttons if needed */
+    }
+
+    #btns button {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
